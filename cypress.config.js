@@ -14,6 +14,6 @@ module.exports = defineConfig({
     responseTimeout: 30000, // Add for server responses
     screenshotOnRunFailure: true,
     video: false,
-    specPattern: 'cypress/e2e//*.cy.{js,jsx,ts,tsx}',
+    specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
   },
 });
