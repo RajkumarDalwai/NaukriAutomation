@@ -16,6 +16,7 @@ pipeline {
             steps {
                 bat 'echo Installing dependencies...'
                 bat 'npm install'
+                bat 'npx cypress install'  // ⬅️ This line installs the Cypress binary
             }
         }
 
