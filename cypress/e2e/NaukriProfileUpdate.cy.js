@@ -40,7 +40,7 @@ describe('Naukri Profile Updater', () => {
     cy.wait(2000); // Allow headline save to complete
 
     // === Upload Resume ===
-    cy.get('.uploadBtn input[type="file"]').attachFile('Rajkumar_Dalwai_Resume-1.pdf');
+    cy.get('.uploadBtn input[type="file"]').attachFile('Rajkumar_Dalwai_Resume.pdf');
 
     // === Validate Upload Date ===
     const today = new Date();
