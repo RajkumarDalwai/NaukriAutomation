@@ -36,16 +36,25 @@ describe('Naukri Profile Updater', () => {
       );
 
     cy.get('.form-actions > .action > .btn-dark-ot').click();
-
     cy.wait(2000); // Allow headline save to complete
 
-    // === Upload Resume ===
-    cy.get('.uploadBtn input[type="file"]').attachFile('Rajkumar_Dalwai_Resume.pdf');
+    // === Upload Resume with base64 ===
+    cy.fixture('Rajkumar_Dalwai_Resume.pdf', 'base64').then(fileContent => {
+      cy.get('.uploadBtn input[type="file"]').attachFile({
+        fileContent,
+        fileName: 'Rajkumar_Dalwai_Resume.pdf',
+        mimeType: 'application/pdf',
+        encoding: 'base64'
+      });
+    });
+
+    // Optional: Wait for upload processing
+    cy.wait(5000);
 
     // === Validate Upload Date ===
     const today = new Date();
     const options = { year: 'numeric', month: 'short', day: '2-digit' };
-    const formattedDate = today.toLocaleDateString('en-US', options); // e.g. "Aug 02, 2025"
+    const formattedDate = today.toLocaleDateString('en-US', options); // e.g. "Aug 06, 2025"
     const expectedText = `Uploaded on ${formattedDate}`;
 
     cy.get('.updateOn').should('contain.text', expectedText);
