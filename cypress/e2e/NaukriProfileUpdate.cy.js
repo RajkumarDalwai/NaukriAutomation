@@ -39,10 +39,11 @@ describe('Naukri Profile Updater', () => {
     cy.wait(2000); // Allow headline save to complete
 
     // === Upload Resume with base64 ===
-    cy.fixture('Rajkumar_Dalwai_Resume.pdf', 'base64').then(fileContent => {
+    // cy.fixture('Rajkumar_Dalwai_Resume.pdf', 'base64').then(fileContent => {
+    cy.fixture('Rajkumar_Dalwai_Resume-1.pdf', 'base64').then(fileContent => {
       cy.get('.uploadBtn input[type="file"]').attachFile({
         fileContent,
-        fileName: 'Rajkumar_Dalwai_Resume.pdf',
+        fileName: 'Rajkumar_Dalwai_Resume-1.pdf',
         mimeType: 'application/pdf',
         encoding: 'base64'
       });
