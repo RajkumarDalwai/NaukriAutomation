@@ -10,12 +10,17 @@ const users = [
   {
     username: 'dalwairajkumar22@gmail.com',
     password: 'Rajkumar@25',
-    resume: 'Rajkumar_Dalwai_Resume-1.pdf'
+    resume: 'Rajkumar_Dalwai_Resume-1.pdf',
+    headline: `Senior QA Engineer | Manual & Automation Testing: Selenium, Cypress, Appium, Rest Assured | 
+               TestNG, BDD, Cucumber | API, DB, Performance Testing | JIRA, Postman, JMeter, GitHub | 
+               CI/CD: Jenkins | SQL.`
   },
   {
     username: 'dalwairajkumar24@gmail.com',
     password: 'Rajkumar@25',
-    resume: 'Rajkumar_Dalwai_Resume-2.pdf'
+    resume: 'Rajkumar_Dalwai_Resume-2.pdf',
+    headline: `Senior QA Engineer | Test Automation (Selenium, Cypress, Appium, Rest Assured) | 
+               CI/CD, Cloud & Performance Testing | 3.5+ Years`
   }
 ];
 
@@ -43,11 +48,7 @@ describe('Naukri Profile Updater', () => {
 
       cy.get('#resumeHeadlineTxt')
         .clear()
-        .type(
-          'Senior QA Engineer | Manual & Automation Testing: Selenium, Cypress, Appium, Rest Assured | ' +
-          'TestNG, BDD, Cucumber | API, DB, Performance Testing | JIRA, Postman, JMeter, GitHub | ' +
-          'CI/CD: Jenkins | SQL.'
-        );
+        .type(user.headline);
 
       cy.get('.form-actions > .action > .btn-dark-ot').click();
       cy.wait(2000); // Allow headline save to complete
